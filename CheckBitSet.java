@@ -83,4 +83,8 @@ public class CheckBitSet {
      }
      return Num & (1 << position) ;
     }
+ static int TurnOffFirstBit(int Num)
+ {
+  return Num & (Num - 1 ) ;
+ }
 }
