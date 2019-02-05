@@ -72,4 +72,15 @@ public class CheckBitSet {
          return "Even" ;
      return "Odd" ;
     }
+  static int NoWithFirstSetBit(int Num)
+    {
+        int position = 1 ;
+     if((Num & 1) != 0)
+         return 1 ;
+     while(((Num & (1 << position)) == 0))
+     {
+         position++ ;
+     }
+     return Num & (1 << position) ;
+    }
 }
