@@ -87,4 +87,9 @@ public class CheckBitSet {
  {
   return Num & (Num - 1 ) ;
  }
+ static int ClearAllMsb(int NUM, int position)
+ {
+  return Num & ( (1 << position ) - 1 )
+ }
+  
 }
