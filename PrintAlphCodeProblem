@@ -1,0 +1,75 @@
+/*
+Problem
+Result
+Return all codes - String
+Send Feedback
+Assume that the value of a = 1, b = 2, c = 3, ... , z = 26. You are given a numeric string S. Write a program to return the list of all possible codes that can be generated from the given string.
+Note : The order of codes are not important. And input string does not contain 0s.
+Input format :
+A numeric string
+Constraints :
+1 <= Length of String S <= 10
+Sample Input:
+1123
+Sample Output:
+aabc
+kbc
+alc
+aaw
+kw
+*/
+import java.util.*;
+
+public class solution {
+       static ArrayList<String> ald = new ArrayList<> () ;
+  
+  static String str[] = new String[]{"", "a" , "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n","o", "p" ,"q" ,"r", "s", "t", "u", "v" ,"w", "x", "y" ,"z"};
+	// Return a string array that contains all possible codes
+	public static  String[] getCode(String input){
+  		// Write your code here
+            alphaCode(input, "", "") ;
+       return ald.toArray(new String[ald.size()]);
+	}
+     
+     static void alphaCode(String input, String attached, String check)
+  {
+    try
+    {
+        if(Integer.parseInt(check) > 26)
+            return ;
+    
+      }catch(Exception e)
+      {}
+       
+       
+       
+          if(input.length() == 0)
+      {
+          check = convert(check) ;
+          ald.add(attached + check) ;
+          return ;
+          
+      }
+          check = convert(check) ;
+          attached = attached + check ;
+          alphaCode(input.substring(1), attached,input.substring(0,1));
+          if(input.length() >= 2)
+          alphaCode(input.substring(2),attached, input.substring(0,2));
+            
+  }
+  
+    static String convert(String check )
+    {
+        if(check == "")
+            return "" ;
+        int i = Integer.parseInt(check) ;
+        if(i <= 26 )
+        {
+            return str[i] ;
+            
+        }
+        
+        return "" ;
+    }
+ 
+}
