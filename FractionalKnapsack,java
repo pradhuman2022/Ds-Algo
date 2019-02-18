@@ -1,0 +1,93 @@
+import java.util.*;
+
+public class PaintHouse {
+
+static class Pair1
+{
+    long cost ;
+    long time ;
+    long units ;
+    long costTimeMultiple;
+    float costPerUnit ;
+    Pair1(long cost, long time , long units , long costTimeMultiple, float costPerUnit)
+    {
+        this.cost = cost ;
+        this.time = time ;
+        this.units = units;
+        this.costTimeMultiple = costTimeMultiple  ;
+        this.costPerUnit = costPerUnit ;
+    }
+    
+}
+
+
+public static void main(String arg[])
+{
+    Scanner sc = new Scanner(System.in) ;
+    Integer n = sc.nextInt() ;
+    Long d = sc.nextLong() ;
+    ArrayList <Pair1> al = new ArrayList<Pair1> () ;
+    while(n > 0) 
+    {
+    long time = sc.nextLong();
+    
+    long cost = sc.nextLong() ;
+    
+    long units = sc.nextLong();
+    
+    int costTimeMultiple = (int)(cost * time) ;
+
+    float costPerUnit = (float)cost / units ;   
+    System.out.println(costTimeMultiple);    
+    al.add(new Pair1(cost, time, units, costTimeMultiple, costPerUnit))  ;   
+        
+        n--;
+    }
+    findMinCost(al, d) ;
+}
+static void findMinCost(ArrayList<Pair1> al, long D) 
+{
+    Collections.sort(al, new Comparator<Pair1>(){
+        public int compare(Pair1 p1, Pair1 p2)
+        {
+          if(p1.time == p2.time)
+          {
+              if(p1.units == p2.units)
+                  return (int)(p1.cost - p2.cost) ;
+             
+                  return (int)(p2.units - p1.units) ;
+          }
+          
+              return (int)(p1.time - p2.time) ;
+        }        
+    });
+    
+    Pair1 currentPainter = al.get(0);
+    long currentBestSpeed = 0 ;
+    long currentUnits = D;
+    long cost = 0;
+    long lastTime = currentPainter.time;
+    for(Pair1 Painter : al)
+    {
+       //System.out.println(Painter.time+"--> time "+Painter.cost+"--> cost "+Painter.units+"--> units "+Painter.costPerUnit+"--> costPerUnit "+Painter.costTimeMultiple+"--> costTImeMultiple");
+    currentUnits -= ((currentPainter.units)*(Painter.time - lastTime)) ;
+     if(currentUnits <= 0)
+         break;
+     
+     if(Painter.units > currentBestSpeed)
+     {
+        
+         currentBestSpeed = currentPainter.units;
+         cost += Painter.cost ;
+         currentPainter = Painter ;
+     }
+      lastTime = Painter.time;
+    }
+    
+    System.out.println(cost) ;
+    
+    
+    
+    
+}
+}
