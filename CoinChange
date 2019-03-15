@@ -1,0 +1,34 @@
+public static int countWaysToMakeChange(int denominations[], int value){
+
+	
+        int dp[] = new  int[1000] ;
+      //  Arrays.sort(denominations) ;
+       int deno [][] = new int[value + 1][denominations.length + 1] ;
+        for(int i = 0 ; i < value + 1; i++)
+        {
+            for(int j = 0 ; j < deno[0].length; j++)
+                deno[i][j] = -1 ;
+        }
+         return cWmC(denominations,value,0, deno);
+       
+       
+        
+	}
+    static int cWmC(int d1[],int value , int indi,deno)
+    {
+        if(value < 0)
+          return 0 ; 
+        
+        if(value == 0)
+            return 1 ;
+        if(indi == d1.length)
+            return 0 ;
+        if(deno[value][indi] != -1)
+            return deno[value][indi] ;
+        int first = cWmC(d1,value - d1[indi], ND, indi) ;
+        int second = cWmC(d1, value, indi + 1) ;
+         deno[val] = first + second ;
+        return deno[value][indi] ;  
+      
+          }
+	
