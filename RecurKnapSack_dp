@@ -1,0 +1,15 @@
+public class RecurKnapSack_dp {
+    static int knapsack(int dp[][] , int val[], int w[], int W, int n)
+    {
+        if(W <=  0 || n < 0)
+            return 0 ;
+        if(dp[n - 1][W] > 0) 
+            return dp[n - 1][W] ;
+        int ans1 = knapsack(dp, val, w, W, n - 1) ;
+        int ans2 = Integer.MIN_VALUE ;
+        if(w[n - 1] < W)
+            ans2 =  val[n- 1] + knapsack(dp, val, w, W - w[n - 1], n - 1) ;
+        dp[n][W] = Math.max(ans1, ans2) ;
+        return dp[n][W] ;
+    }
+}
