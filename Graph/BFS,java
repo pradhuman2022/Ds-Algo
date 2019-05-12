@@ -1,0 +1,65 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author pradhuman
+ */
+import java.util.*;
+public class BFS {
+    public static void main(String ar[])
+    {
+        Scanner sc = new Scanner(System.in) ;
+        int n = sc.nextInt() ;
+        int e = sc.nextInt();
+        Graph g = new Graph(n) ;
+        for(int i = 0 ; i < e ; i++)
+            g.addEdge(sc.nextInt(), sc.nextInt());
+        g.bfs(0);
+        
+    }
+    static class Graph
+    {
+        int v; 
+        LinkedList<Integer> adjList[] ;
+        Graph(int v)
+        {
+         this.v = v ;
+         this.adjList = new LinkedList[v] ;
+         for(int i = 0 ; i < v ; i++)
+           adjList[i] = new LinkedList<Integer>() ;
+        }
+        void addEdge(int u, int v)
+        {
+            adjList[u].add(v) ;
+            adjList[v].add(u) ;
+        }
+        void bfs(int vi)
+        {
+            for(int i = 0 ; i < this.v; i++)
+            {
+                Collections.sort(this.adjList[i]);
+            }
+            boolean visited[] = new boolean[v] ;
+            visited[vi] = true ;
+            Queue<Integer> q = new ArrayDeque<Integer>() ;
+            q.offer(vi) ;
+            while(!q.isEmpty())
+            {
+               int k = q.poll(); 
+               System.out.print(k) ;
+               for(int x : adjList[k])
+               {
+                  if(!visited[x])
+                  {
+                      visited[x] = true ;
+                      q.offer(x) ;
+                  }
+               }
+            }
+        }
+    }
+}
