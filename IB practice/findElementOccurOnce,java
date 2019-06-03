@@ -1,0 +1,30 @@
+public class Solution {
+    public int solve(int[] A) {
+        int low = 0 ; 
+        int high = A.length - 1 ;
+        while(low < high)
+        {
+            int i = (low + high) / 2 ;
+            if(i % 2 == 0)
+            {
+                if(A[i] == A[i + 1])
+                {
+                    low = i + 2 ;
+                }else
+                {
+                    high = i;
+                }
+            }else
+            {
+                if(A[i] == A[i - 1])
+                {
+                    low = i + 1 ;
+                }else
+                {
+                    high = i - 1 ;
+                }
+            }
+        }
+        return A[low];
+    }
+}
