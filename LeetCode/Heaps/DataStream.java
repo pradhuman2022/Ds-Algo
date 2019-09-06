@@ -43,7 +43,7 @@ then we will return 3 + 4 / 2 as answer ;
             return bg.peek() ;
         else
             return ((double)bg.peek() + (double)sm.peek()) / 2 ;
-            
+     //       
     }
 }
 
