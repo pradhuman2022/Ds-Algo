@@ -31,6 +31,7 @@ public class Main {
                  return false ;
                  
              }
+	//------------------- creating sieve here------------------------
           static int sieveEra(int n)
           {
               boolean values[] = new boolean[n + 1] ; 
