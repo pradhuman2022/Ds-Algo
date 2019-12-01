@@ -1,0 +1,83 @@
+// write your code here...
+
+
+[1,1,1,3,5] 
+
+Given an array - sorted | have odd no of elements
+
+
+Operaration : increase any element of the give array by 1
+
+k - this is the number of times you have to do the operations
+
+Return - Max possible value of median
+[1,1,1,3,5]  --[1,1,2,3,5] - [1,1,3,3,5] -- [1,1,3,4,5] -- [1,1,4,4,5]
+k=2
+k = 4 
+1->5
+1->4
+1->3
+k = 4 
+low = arr[mid]
+mid = 1 h[3, 5] 
+mid = 2 h[3, 5]
+mid = 3 h[3, 5]
+mid = 3 h[4, 5]
+mid = 4 h[5, 5]
+
+
+h[1,3,5]    -- [2,3,5]  -- [ 3,3,5]  -- [ 3,4,5] -- [4,4,5]
+int maxMedian(int[] arr , int k){
+  
+  
+    while(k-- > 0){
+        int valToBeInc = findInc(arr, k)  ; 
+    }
+  
+  
+  
+  
+  
+  /*  PriorityQueue<Integer> pq = new PriorityQueue<Integer>() ; 
+    int mid = arr.legnth / 2 ; 
+    for(int i = mid + 1 ; i < arr.length ; i++){
+        pq.offer(arr[i]) ;
+    }
+    int midEle = arr[mid] ; 
+   
+    while(k-- >0){
+       if(midEle < pq.peek()){
+           midEle++ ;
+       } 
+       if(midEle == pq.peek()){
+           int value = pq.peek() ; 
+           pq.poll() ;
+           pq.offer(++value) ; 
+       }
+    }
+    O(k) + O(1) + O(log(n / 2))
+    O(k(log n))*/
+    return midEle ;
+    //Implement your code here
+}
+
+
+1,1,1,7,10    k=3
+
+int findInc(int arr[] ,int k){
+    int start = arr.length / 2 ; 
+    int end = arr.length - 1 ; 
+    int midVal = arr[start] ;
+    
+    while(start <= end){
+        int middle = (start + end) / 2 ; 
+        
+        if(midVal == arr[middle])
+          return middle;
+        if(midVal > arr[middle])
+          start = middle +1 ;
+        else
+         end = middle - 1 ;
+    }
+    return -1 ;
+}
