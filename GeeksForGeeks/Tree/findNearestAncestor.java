@@ -124,3 +124,31 @@ class GFG {
     }
 	
 }
+
+/*
+
+Question 1 :
+ 
+Ram and Shyam decide to go on a fun weekend camping trip. As they were passing through a forest, they stumbled upon a unique tree of V nodes. Vertices are numbered from 1 to N.
+ 
+Each node of the tree is assigned a color (out of C possible colors). The tree is rooted at vertex 1. For each node, they want to find its closest ancestor having the same color.
+ 
+Input format
+ 
+The first row will be having 2 integers N and C representing the number of vertices in the tree and the number of possible colors.
+The second line contains  integers. The  integer denotes the parent of the  vertex.
+The third line contains N integers, denoting the colors of the vertices. Each color lies between 1 and C inclusive.
+ 
+Output format
+Print N space-separated integers. The  integer is the vertex number of closest ancestor of the  node which has the same colour. If there is no such ancestor, print -1 for that node.
+ 
+Input
+5  4
+1  1  3  3
+1  4  2  1  2
+ 
+Output
+-1 -1 -1 1 3
+ 
+ 
+*/
