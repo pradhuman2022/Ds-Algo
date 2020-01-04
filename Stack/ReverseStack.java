@@ -18,7 +18,7 @@ public class HelloWorld{
          
          int a = st.pop() ;
          Reverse(st) ;
-         insert_At_Bottom(st, a) ;
+         insert_At_Bottom(st, a) ;//inserting current at bottom
      }
      static void insert_At_Bottom(Stack<Integer> st, int a)
      {
