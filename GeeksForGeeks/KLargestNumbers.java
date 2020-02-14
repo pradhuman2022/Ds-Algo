@@ -1,5 +1,5 @@
 /*package whatever //do not write package name here */
-
+//wherever K shows , it is like heap
 import java.util.*;
 import java.lang.*;
 import java.io.*;
