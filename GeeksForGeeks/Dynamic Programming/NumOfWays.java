@@ -26,7 +26,7 @@ class GFG
 	         else if(i == 4)
 	         dp[i] = 2; 
 	         else
-	         dp[i] = (dp[i - 1] + dp[i - 4]) % mod ;
+	         dp[i] = (dp[i - 1] + dp[i - 4]) ;
 	     }
 	     return dp[n];
 	 }
