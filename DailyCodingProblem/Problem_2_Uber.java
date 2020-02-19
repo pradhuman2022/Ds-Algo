@@ -1,4 +1,5 @@
 
+//prefix suffix
 public class SpecialProducts {
 	
 	public static void main(String ar[])
