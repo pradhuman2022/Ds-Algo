@@ -1,4 +1,4 @@
-//Using recursion.
+//Using insertion at bottom.
 public class HelloWorld{
 
      public static void main(String []args){
