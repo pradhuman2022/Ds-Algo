@@ -22,7 +22,7 @@ Output details:
 FJ can put his 3 cows in the stalls at positions 1, 4 and 8, 
 resulting in a minimum distance of 3.
 Download Test Cases
-
+//binary Search Problem
 
 import java.util.*;
 
