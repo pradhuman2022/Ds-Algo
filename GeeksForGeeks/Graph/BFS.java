@@ -1,3 +1,4 @@
+//bfs using queue 
 class Traversal
 {
     static void bfs(int s, ArrayList<ArrayList<Integer>> list, boolean visited[], int nov)
