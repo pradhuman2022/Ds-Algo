@@ -1,3 +1,5 @@
+
+//Greedy
 class Solution {
     public int minDominoRotations(int[] A, int[] B) {
      int freq1 [] = new int[7] ;
