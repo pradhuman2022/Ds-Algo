@@ -1,4 +1,5 @@
-/*package whatever //do not write package name here */
+
+/*kcore nodes package whatever //do not write package name here */
 
 import java.util.*;
 
