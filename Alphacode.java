@@ -39,7 +39,7 @@ public class Main {
     
     
     
-    
+    //Bottom up approach
     static int alphacode1(String n)
     {
         int dp [] = new int[n.length() + 1] ;
