@@ -1,5 +1,5 @@
 /*package whatever //do not write package name here */
-
+//can be done using Priority Queues
 import java.util.*;
 import java.lang.*;
 import java.io.*;
