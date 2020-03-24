@@ -1,5 +1,5 @@
 
-//Codeforces
+//Codeforces using recursion
 import java.util.* ;
 public class ThanosSort {
     static int count = 1 ;
