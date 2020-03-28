@@ -1,0 +1,194 @@
+
+1. Clarify the problem.
+2. Formulate your approach.
+3. Formulate atleast 2-3 good test cases.
+4. Dry run your approach on the test cases.
+5. go over the code.
+6. Dry run it again on best out 2-3
+
+
+
+Insist on highest standard
+Bias for action
+Customer obsession
+Be Curious
+Delivers Result
+
+
+Problem Solving
+--------
+1. Candiate came up with approach, there were couple of bugs. 
+--------
+
+
+
+Deals with Ambiguity [ ask as many as possible]
+  - candidate asks few clarifying question
+  - But missed important details to solve the problem
+	- tree is binary?
+        - can tree have negative numbers?
+    - will they fit in int?
+----
+
+C: What do you mean by contiguous
+I : gave an example
+C: Gave an example and tried to explain his understanding
+C : can you give me an example for it
+I : gave an trivial example
+
+  1
+  2      2
+3   3  3
+         4
+I : what will be the output for the question
+C: 10
+
+C: gave the approach and explain the t complexity as n*n
+I: how it will be n*n ?
+C: I think it will be O(n), 
+C: Candidate came up with the code for the discussed approach
+I: Can you please try to find out any edge cases where this code will fail
+C : Candidate dry ran the code on the given example.
+I : Candidate was finding it hard to figure out corner cases 
+
+Feedback
+1. Candidate should step back and evaluate his approach using atleast his own 2-3 example 
+2. Candidate should prove the correctness before jumping on to code
+3. 
+
+
+Question 2:
+You have been given a set of dependencies and a target node.
+ * [a,b] : a depends on b.
+ * Find whether you can build the target node.
+ * Example :
+ * [[1,2][2,4],[2,3]]
+ * target=1
+ * output : true
+ *     1
+ *    2
+ *  4   3
+
+
+
+
+
+
+
+
+
+/**
+ * You have been given a set of dependencies and a target node.
+ * [a,b] : a depends on b.
+ * Find whether you can build the target node.
+ * Example :
+ * [[1,2][2,4],[2,3]]
+ * target=1
+ * output : true
+ *     1
+ *    2
+ *  4   3
+ **/
+  
+     1
+  2     3
+4
+  3
+    1
+
+
+1 : false
+2 : false
+4 : false
+3 : false
+1 : 
+
+
+
+
+
+
+
+
+
+
+
+Given a tree, where each node has a value in it.
+Find and return the max sum for a path in a tree.
+The path should have contiguos numbers in increasing order.
+1 -> 2->3
+ 
+   1
+  2      2
+3   3  3
+         4
+         
+             1
+  2      2
+3   3  3
+         4
+output : 10
+ -------------------
+  1
+ 3 4
+2   5
+
+ans : 5
+
+
+
+
+         1 (21, 2)
+     2 (21, 10)
+ 10
+    11
+
+output : 21
+     r
+  ll   lr
+
+1 : 
+4:left=(0,0), right(5,5), maxSum=4
+5: (5,5)
+3 : left=(2,2), right=(0,0), maxSum= 3, value=3, (3,3)
+2 : left = (0,0), right=(0,0), maxSum=2, value =2, (2, 2)
+
+    Pair {
+        int maxSum ;
+        int value ;
+    }
+    
+    Pair findMaxPathSum(Node root) { 
+     
+     if(root == null)
+        return new Pair() ; 
+        
+     Pair left = solve(root.left);
+     Pair right = solve(root.right);
+     int maxSum = Integer.MIN_VALUE;
+     
+     //try to include in left subtree
+       2      3
+       3      2
+     if(left.value > root.value && left.value == root.val - 1) {
+         maxSum = max(maxSum, left.maxSum + root.val);
+     }else {
+         maxSum = max(left.val, root.val);
+     }
+     
+     right.value > root.value
+          
+     if(right.value == root.val - 1) {
+         maxSum = max(maxSum, right.maxSum + root.val);
+     }else {
+         maxSum = max(right.val, root.val);
+     }
+    
+     Pair p = new Pair();
+     p.maxSum = maxSum ;
+     p.value = root.val ;
+     return p;
+    
+    }
+    
+    
