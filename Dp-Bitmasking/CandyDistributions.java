@@ -23,7 +23,7 @@ public class solution {
 	        if((mask & (1 << i)) == 0 && chocos[Sn][i] == 1)
 	         totalWays += waysToDist(chocos, mask|(1 << i), n, dp, Sn + 1) ;
 	    }  
-	    return dp[mask] = totalWays ;
+	    return dp[mask] = totalWays;
 	}
 	
 }
