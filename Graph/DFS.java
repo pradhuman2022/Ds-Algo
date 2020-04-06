@@ -1,4 +1,5 @@
 import java.util.*;
+//using recursion
 public class DFS {
     static void print(int sn, int edges[][], boolean visited[], int n)
     {
