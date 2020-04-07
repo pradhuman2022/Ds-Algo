@@ -1,6 +1,6 @@
 public class Solution {
 
-    // Complete the highestValuePalindrome function below.
+    // Complete the highestValuePalindrome function below. .
     static String highestValuePalindrome(String s, int n, int k) {
        int arr[] = new int[s.length()] ; 
        for(int i = 0 ; i < arr.length ; i++)
