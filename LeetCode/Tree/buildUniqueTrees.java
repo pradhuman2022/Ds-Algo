@@ -14,6 +14,11 @@ class Solution {
             ansList.add(null);
             return ansList;
         }
+        /*
+            muje logic pta tha but ye sare left subtree ko generate krke unke root store krne ka concept ni ara tha,
+            muje lgra tha ki 2D array chaiye h store krne k liy.
+            but same countBst ki trh krna h or ans m sare Trees k root bhejne hai bs.
+        */
         List<TreeNode> ansList = new ArrayList<TreeNode>(); 
         for(int root = start; root <= end; root++) {
             List<TreeNode> leftSubTree = buildUniqueTrees(start, root - 1); 
