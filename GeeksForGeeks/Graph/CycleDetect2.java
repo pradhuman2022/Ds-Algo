@@ -30,7 +30,8 @@ class DetectCycle
        addEdgesFromAdjList(adj, V, graph);
        int parent[] = new int[V];
        int rank[] = new int[V];
-        Arrays.fill(parent, -1);
+       for(int i = 0 ; i < V; i++)
+        parent[i] = i ;
         for (int edge = 0; edge < graph.edges.size(); edge++) {
             int source = graph.edges.get(edge).source;
             int destination = graph.edges.get(edge).destination;
@@ -58,15 +59,15 @@ class DetectCycle
         }
     }
     
+    //Path compression, so man lo A ka parent Z hai toh Z tak jb pahuchege to Z root hoga sbka, to parentOfA Z ko set krdege.
     static int find(int parent[], int vertex) {
-        if(parent[vertex] == -1)
-            return vertex;
-        return find(parent, parent[vertex]);
+        if(parent[vertex] != vertex)
+            parent[vertex] = find(parent, parent[vertex]); 
+        return parent[vertex];
     }
-    /*
-    * Rank is not height all time.
-    **/
+    
     static void union(int rank[], int parent[], int vertex1, int vertex2) {
+        
         if(rank[vertex1] < rank[vertex2])
             parent[vertex1] = vertex2;
         else if(rank[vertex2] < rank[vertex1])
