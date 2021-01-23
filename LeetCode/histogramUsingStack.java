@@ -2,7 +2,6 @@ class Solution {
     public int largestRectangleArea(int[] heights) {
         
         Stack<Integer> st = new Stack<>(); // contains previous smaller values
-        Stack<Integer> st1 = new Stack<>(); // contains next smaller values
         int leftLimit[] = new int[heights.length];
         int rightLimit[] = new int[heights.length];
         Arrays.fill(rightLimit, -1);
@@ -15,17 +14,11 @@ class Solution {
                 leftLimit[i] = 0;
             } else {
                 while(!st.isEmpty() && heights[i] <= heights[st.peek()]) {
-                    st.pop();
+                      rightLimit[st.pop()] = i - 1; 
                 }
-                
                 leftLimit[i] = st.isEmpty() ? 0 : st.peek() + 1;
             }
             st.push(i);
-            
-            while(!st1.isEmpty() && heights[i] <= heights[st1.peek()]) {
-                rightLimit[st1.pop()] = i - 1; 
-            }
-            st1.push(i);
         }
         
             for (int i = 0; i < n; i++) {
@@ -34,13 +27,6 @@ class Solution {
          }
          
          return maxArea;
-    }
-    
-    private void findPreviousSmallerBar(Stack<Integer> st, int leftLimits[]) {
-        
-        while(!st.isEmpty()) {
-            
-        }
     }
     
     
