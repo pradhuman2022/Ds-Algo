@@ -6,32 +6,16 @@ public class Solution {
         int cost[] = new int[A + 1];
         PriorityQueue<Integer> p = new PriorityQueue<>((a, b) -> 
                     Integer.valueOf(cost[a]).compareTo(Integer.valueOf(cost[b])));
-                    
-        Arrays.fill(cost, Integer.MAX_VALUE);
+        
         Map<Integer, List<NodeDetail>> adjList = new HashMap<>();
-        int startNode = -1;
-        int minWeight = Integer.MAX_VALUE;
         
-        for (int i = 0; i < B.length; i++) {
-            if(minWeight > B[i][2]) {
-                startNode = B[i][0];
-                minWeight = B[i][2];
-            }
-            
-            List<NodeDetail> list1 = adjList.getOrDefault(B[i][0], new ArrayList<>());
-            List<NodeDetail> list2 = adjList.getOrDefault(B[i][1], new ArrayList<>());
-            list1.add(new NodeDetail(B[i][1], B[i][2]));
-            list2.add(new NodeDetail(B[i][0], B[i][2]));
-            adjList.put(B[i][0], list1);
-            adjList.put(B[i][1], list2);
-        }
-        
+        int startNode = getAndInitGraphDetails(B, adjList, cost);
         cost[startNode] = 0;
         p.add(startNode);
         int totalCost = 0;
         
         while(!p.isEmpty()) {
-            int currentNode = p.poll();
+            int currentNode = p.poll( );
             if(!visited[currentNode]) {
                 visited[currentNode] = true;
                 totalCost += cost[currentNode];
@@ -56,6 +40,32 @@ public class Solution {
             this.weight = weight;
         }
     }
+    
+    public int getAndInitGraphDetails(int B[][], Map<Integer, List<NodeDetail>> adjList, int cost[]) {
+    
+        
+        Arrays.fill(cost, Integer.MAX_VALUE);
+        int startNode = -1;
+        int minWeight = Integer.MAX_VALUE;
+        
+        for (int i = 0; i < B.length; i++) {
+            if(minWeight > B[i][2]) {
+                startNode = B[i][0];
+                minWeight = B[i][2];
+            }
+            
+            List<NodeDetail> list1 = adjList.getOrDefault(B[i][0], new ArrayList<>());
+            List<NodeDetail> list2 = adjList.getOrDefault(B[i][1], new ArrayList<>());
+            list1.add(new NodeDetail(B[i][1], B[i][2]));
+            list2.add(new NodeDetail(B[i][0], B[i][2]));
+            adjList.put(B[i][0], list1);
+            adjList.put(B[i][1], list2);
+        }
+        
+        return startNode;
+
+    }
+        
 }
 
 /**
