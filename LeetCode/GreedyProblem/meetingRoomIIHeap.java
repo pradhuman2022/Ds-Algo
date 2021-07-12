@@ -3,13 +3,13 @@ class Solution {
         int minRooms = Integer.MAX_VALUE;
         PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> a - b);
          // Sort the intervals by start time
-   /** Arrays.sort(
+         Arrays.sort(
         intervals,
         new Comparator<int[]>() {
           public int compare(final int[] a, final int[] b) {
             return a[0] - b[0];
           }
-        });**/
+        });
         
         pq.add(intervals[0][1]);
         
