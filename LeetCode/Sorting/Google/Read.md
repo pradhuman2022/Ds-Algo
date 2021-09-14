@@ -21,7 +21,8 @@ So left can be > than right or equal. Hence when left will be equal to right or 
 
 -------
 
-Matrix Representation as one dimensional array:
+**Matrix Representation as one dimensional array:**
+
 Lets say, we have following matrix and try to represent their positions using column and row values.
 
 [0, 1, 2]
