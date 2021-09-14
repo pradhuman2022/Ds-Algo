@@ -40,6 +40,11 @@ lastIndex = (currentRow + 1) * (totalColumn) - 1
 3rdLastIndex/OthIndex = (currentRow + 1) * (totalColumn) - 3
 
 We can formulate it following way:
+
+i == currentRow
+
+j == currentColumn
+
 ```
 position(i, j) := (cureentRow + 1) * (totalColumn) - (totalColumn - currentColumn)
 position(i, j) := (currentRow * totalColumn) + totalColumn - totalColumn + currentColumn
