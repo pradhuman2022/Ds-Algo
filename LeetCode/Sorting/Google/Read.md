@@ -8,8 +8,26 @@ Pattern:
 
 **Binary Search:**
 ```
+Find closest element to x
+
 while(left <= right) {
 	int mid = (left + right) / 2;
+	if (arr[mid] > x) { 
+	right = mid - 1;
+  } else {
+	  left = mid + 1;
+  }
+}
+
+Find if x is present or not.
+
+Find closest element to x
+
+while(left <= right) {
+	int mid = (left + right) / 2;
+	if (arr[mid] == x) 
+	 	return mid;
+	
 	if (arr[mid] > x) { 
 	right = mid - 1;
   } else {
