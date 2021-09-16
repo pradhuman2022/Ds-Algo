@@ -7,16 +7,17 @@ Pattern:
 -------
 
 **Binary Search:**
+https://www.topcoder.com/thrive/articles/Binary%20Search
 ```
 Find closest element to x
 
-while(left <= right) {
+while(left < right) {
 	int mid = (left + right) / 2;
 	if (arr[mid] > x) { 
-	right = mid - 1;
+	right = mid;
   } else {
-	  left = mid + 1;
-  }
+	 left = mid + 1;
+   }
 }
 
 Find if x is present or not.
