@@ -133,3 +133,11 @@ index 6 := 2 * 3 + 0
 
 }
 ```
+----
+
+Arr[0, 1, 2, 3, 4, 5, 6] n = 7
+kth element from last
+n - k
+7 - 3 = 4index value
+7 - 3 + 1 = 5 will be position.
+
