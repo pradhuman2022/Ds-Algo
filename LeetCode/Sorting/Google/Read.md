@@ -90,3 +90,46 @@ index 6 := 2 * 3 + 0
  ----
  
  Merge Sort Based Questions: https://leetcode.com/tag/merge-sort/
+ 
+ QuickSelect: https://www.geeksforgeeks.org/quickselect-algorithm/
+ 
+ ```
+ /****
+    public void QuickSelect(int start, int end, int arr[], int k) {
+        
+        if (start == end)
+            return;
+        
+        int pivotIndex = partition(start, end, arr);
+        
+        if(pivotIndex + 1 == k)
+            return ;
+        else if (pivotIndex + 1 < k)
+            QuickSelect(pivotIndex + 1, end, arr, k);
+        else
+            QuickSelect(start, pivotIndex - 1, arr, k);
+    }
+    
+    public int partition(int start, int end, int arr[]) {
+        
+        int pivotValue = arr[end];
+        int pivotIndex = start;
+        for (int i = start; i <= end; i++) {
+            if(pivotValue > arr[i]) {
+                swap(pivotIndex,i, arr);
+                pivotIndex++;
+            }   
+        }
+        
+        swap(pivotIndex, end, arr);
+        return pivotIndex;
+    }
+    
+    public void swap(int i, int j, int nums[]) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+
+}
+```
