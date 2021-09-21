@@ -91,6 +91,11 @@ index 6 := 2 * 3 + 0
  
  Merge Sort Based Questions: https://leetcode.com/tag/merge-sort/
  
+ Pattern: If problem is related to count pair/anything like i < j and a[i] > a[j], where we need to count for condition which rely on array left and right side, then just sort array count value for constrain. Since left and right part of array will be sorted itself which will also help to count such constraints.
+ 
+ 
+ -----
+ 
  QuickSelect: https://www.geeksforgeeks.org/quickselect-algorithm/
  
  ```
