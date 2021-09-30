@@ -17,3 +17,5 @@ if p(lo) == false:
 
 return lo // lo is the least x for which p(x) is true
 ```
+-----
+Binary Search In Detail: https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-binary-search-template-solved-many-problems
