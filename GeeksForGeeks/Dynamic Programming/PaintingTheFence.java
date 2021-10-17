@@ -33,3 +33,10 @@ class GFG {
 	    return dp[n] ; 
 	}
 }
+// F(i) to paint i fences with different colors
+// F`(i) to paint i and i - 1 with same colors
+/***
+  F(i) = F(i - 1) * (k - 1)
+  F`(i) = F(i - 2) * (k - 1)
+  ans = F(i) + F`(i)
+**/
